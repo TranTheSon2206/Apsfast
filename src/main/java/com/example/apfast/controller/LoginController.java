@@ -33,6 +33,7 @@ public class LoginController {
         return "index";
     }
 
+
     @PostMapping("/login")
     public String login(@ModelAttribute("member") Members member, HttpSession session, Model model) {
         String userId = member.getUserId();

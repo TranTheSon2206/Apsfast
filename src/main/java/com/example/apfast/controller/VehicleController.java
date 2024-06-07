@@ -73,7 +73,7 @@ public class VehicleController {
     public String addVehicle(@ModelAttribute("vehicle") Vehicle vehicle, HttpSession session) {
 
         if (session.getAttribute("userId") == null) {
-            return "redirect:/login";
+            return "redirect:/";
         }
 
         vehicleRepository.save(vehicle);
@@ -84,7 +84,7 @@ public class VehicleController {
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model, HttpSession session) {
         if (session.getAttribute("userId") == null) {
-            return "redirect:/login";
+            return "redirect:/";
         }
 
         String role = (String) session.getAttribute("role");
@@ -107,7 +107,7 @@ public class VehicleController {
     public String updateVehicle(@PathVariable("id") Long id, @ModelAttribute("vehicle") Vehicle updatedVehicle, HttpSession session) {
 
         if (session.getAttribute("userId") == null) {
-            return "redirect:/login";
+            return "redirect:/";
         }
 
         String role = (String) session.getAttribute("role");
@@ -132,7 +132,7 @@ public class VehicleController {
     @GetMapping("/delete/{id}")
     public String deleteVehicle(@PathVariable("id") Long id, HttpSession session) {
         if (session.getAttribute("userId") == null) {
-            return "redirect:/login";
+            return "redirect:/";
         }
 
         String role = (String) session.getAttribute("role");
